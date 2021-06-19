@@ -26,12 +26,12 @@ class Tape(object):
 class TuringMachine(object):
     def __init__(
         self,
-        tape='',
+        inputTape='',
         initialState='',
         finalState=None,
         transitionFunc=None
     ):
-        self._tape = Tape(tape)
+        self._tape = Tape(inputTape)
         self._headPosition = 0
         self._blank = Tape.blank
         self._currentState = initialState
@@ -62,6 +62,8 @@ class TuringMachine(object):
             elif y[2] == 'L':
                 self._headPosition -= 1
             self._currentState = y[0]
+
+            print(self._tape)
 
     def final(self):
         if self._currentState in self._finalState:

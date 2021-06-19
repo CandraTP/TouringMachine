@@ -23,7 +23,7 @@ turingAddition = TuringMachine(
     transitionFuncAddition
 )
 
-print("initial tape addition     : " + turingAddition.get_tape())
+print("\ninitial tape addition     : " + turingAddition.get_tape())
 
 while not turingAddition.final():
     turingAddition.step()
@@ -56,7 +56,7 @@ turingSubtraction = TuringMachine(
     transitionFuncSubtraction
 )
 
-print("initial tape subtraction  : " + turingSubtraction.get_tape())
+print("\ninitial tape subtraction  : " + turingSubtraction.get_tape())
 
 while not turingSubtraction.final():
     turingSubtraction.step()
@@ -102,7 +102,7 @@ turingMultiplication = TuringMachine(
     transitionFuncMultiplication
 )
 
-print("initial tape mutiplication: " + turingMultiplication.get_tape())
+print("\ninitial tape mutiplication: " + turingMultiplication.get_tape())
 
 while not turingMultiplication.final():
     turingMultiplication.step()
@@ -149,7 +149,7 @@ turingDivision = TuringMachine(
     transitionFuncDivision
 )
 
-print("initial tape division     : " + turingDivision.get_tape())
+print("\ninitial tape division     : " + turingDivision.get_tape())
 
 while not turingDivision.final():
     turingDivision.step()
