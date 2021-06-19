@@ -1,7 +1,39 @@
 from turing import TuringMachine
 
-inputSample = '110111111110'
+inputSubtraction = '11-11111'
+initialStateSubtraction = 'q0'
+finalStateSubtraction = {'q9'}
+transitionFuncSubtraction = {
+    ('q0', '1'): ('q1', '_', 'R'),
+    ('q0', '-'): ('q4', '_', 'R'),
+    ('q1', '1'): ('q1', '1', 'R'),
+    ('q1', '-'): ('q2', '-', 'R'),
+    ('q2', '1'): ('q3', '-', 'L'),
+    ('q2', '-'): ('q3', '-', 'R'),
+    ('q3', '1'): ('q3', '1', 'L'),
+    ('q3', '-'): ('q3', '-', 'L'),
+    ('q3', '_'): ('q0', '_', 'R'),
+    ('q4', '1'): ('q5', '1', 'S'),
+    ('q4', '-'): ('q4', '_', 'R'),
+    ('q4', '_'): ('q5', '_', 'S'),
+}
 
+turingSubtraction = TuringMachine(
+    inputSubtraction,
+    initialStateSubtraction,
+    finalStateSubtraction,
+    transitionFuncSubtraction
+)
+
+print("initial tape: " + turingSubtraction.get_tape())
+
+while not turingSubtraction.final():
+    turingSubtraction.step()
+
+print("final tape: " + turingSubtraction.get_tape())
+
+
+inputDivision = '110111111110'
 initialStateDivision = 'q0'
 finalStateDivision = {'q9'}
 transitionFuncDivision = {
@@ -33,16 +65,16 @@ transitionFuncDivision = {
     ('q8', '1'): ('q9', '1', 'R'),
 }
 
-turing_machine = TuringMachine(
-    inputSample,
+turingDivision = TuringMachine(
+    inputDivision,
     initialStateDivision,
     finalStateDivision,
     transitionFuncDivision
 )
 
-print("initial tape: " + turing_machine.get_tape())
+print("initial tape: " + turingDivision.get_tape())
 
-while not turing_machine.final():
-    turing_machine.step()
+while not turingDivision.final():
+    turingDivision.step()
 
-print("final tape: " + turing_machine.get_tape())
+print("final tape: " + turingDivision.get_tape())
