@@ -23,12 +23,12 @@ turingAddition = TuringMachine(
     transitionFuncAddition
 )
 
-print("initial tape: " + turingAddition.get_tape())
+print("initial tape addition     : " + turingAddition.get_tape())
 
 while not turingAddition.final():
     turingAddition.step()
 
-print("final tape: " + turingAddition.get_tape())
+print("final tape addition       : " + turingAddition.get_tape())
 
 # SUBTRACTION
 inputSubtraction = '11-11111'
@@ -56,12 +56,58 @@ turingSubtraction = TuringMachine(
     transitionFuncSubtraction
 )
 
-print("initial tape: " + turingSubtraction.get_tape())
+print("initial tape subtraction  : " + turingSubtraction.get_tape())
 
 while not turingSubtraction.final():
     turingSubtraction.step()
 
-print("final tape: " + turingSubtraction.get_tape())
+print("final tape subtraction    : " + turingSubtraction.get_tape())
+
+# MULTIPLICATION
+inputMultiplication = '111*11'
+initialStateMultiplication = 'q0'
+finalStateMultiplication = {'q9'}
+transitionFuncMultiplication = {
+    ('q0', '0'): ('q8', '_', 'R'),
+    ('q0', '1'): ('q1', '_', 'R'),
+    ('q1', '1'): ('q2', '_', 'R'),
+    ('q1', '*'): ('q7', '_', 'R'),
+    ('q2', '1'): ('q2', '1', 'R'),
+    ('q2', '*'): ('q3', '*', 'R'),
+    ('q3', '1'): ('q4', 'M', 'R'),
+    ('q3', 'N'): ('q6', 'N', 'L'),
+    ('q4', '1'): ('q4', '1', 'R'),
+    ('q4', 'N'): ('q4', 'N', 'R'),
+    ('q4', '_'): ('q5', 'N', 'L'),
+    ('q5', '1'): ('q5', '1', 'L'),
+    ('q5', 'M'): ('q3', '1', 'R'),
+    ('q5', 'N'): ('q5', 'N', 'L'),
+    ('q6', '1'): ('q6', '1', 'L'),
+    ('q6', '*'): ('q6', '*', 'L'),
+    ('q6', '_'): ('q1', '_', 'R'),
+    ('q7', '0'): ('q7', '_', 'R'),
+    ('q7', '1'): ('q7', '1', 'R'),
+    ('q7', 'N'): ('q7', '1', 'R'),
+    ('q7', '_'): ('q9', '_', 'S'),
+    ('q8', '0'): ('q8', '_', 'R'),
+    ('q8', '1'): ('q8', '_', 'R'),
+    ('q8', '*'): ('q8', '_', 'R'),
+    ('q8', '_'): ('q9', '_', 'S'),
+}
+
+turingMultiplication = TuringMachine(
+    inputMultiplication,
+    initialStateMultiplication,
+    finalStateMultiplication,
+    transitionFuncMultiplication
+)
+
+print("initial tape mutiplication: " + turingMultiplication.get_tape())
+
+while not turingMultiplication.final():
+    turingMultiplication.step()
+
+print("final tape mutiplication  : " + turingMultiplication.get_tape())
 
 # DIVISION
 inputDivision = '110111111110'
@@ -103,9 +149,9 @@ turingDivision = TuringMachine(
     transitionFuncDivision
 )
 
-print("initial tape: " + turingDivision.get_tape())
+print("initial tape division     : " + turingDivision.get_tape())
 
 while not turingDivision.final():
     turingDivision.step()
 
-print("final tape: " + turingDivision.get_tape())
+print("final tape division       : " + turingDivision.get_tape())
