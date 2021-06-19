@@ -157,7 +157,7 @@ while not turingDivision.final():
 print("final tape division       : " + turingDivision.get_tape())
 
 # FACTORIAL
-inputFactorial = '11'
+inputFactorial = '111'
 initialStateFactorial = 'q0'
 finalStateFactorial = {'q24'}
 transitionFuncFactorial = {
@@ -229,7 +229,7 @@ transitionFuncFactorial = {
     ('q23', '_'): ('q23', '_', 'R'),
     ('q25', '0'): ('q25', '_', 'R'),
     ('q25', '1'): ('q25', '1', 'R'),
-    ('q25', '_'): ('q25', '_', 'S'),
+    ('q25', '_'): ('q24', '_', 'S'),
 }
 
 turingFactorial = TuringMachine(
