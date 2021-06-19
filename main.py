@@ -1,8 +1,39 @@
 from turing import TuringMachine
 
+# ADDITION
+inputAddition = '111+111'
+initialStateAddition = 'q0'
+finalStateAddition = {'q3'}
+transitionFuncAddition = {
+    ('q0', '0'): ('q0', '_', 'R'),
+    ('q0', '1'): ('q0', '1', 'R'),
+    ('q0', '+'): ('q1', '1', 'R'),
+    ('q1', '0'): ('q2', '0', 'L'),
+    ('q1', '1'): ('q1', '1', 'R'),
+    ('q1', '_'): ('q2', '_', 'L'),
+    ('q2', '0'): ('q2', '_', 'R'),
+    ('q2', '1'): ('q2', '_', 'R'),
+    ('q2', '_'): ('q3', '_', 'S'),
+}
+
+turingAddition = TuringMachine(
+    inputAddition,
+    initialStateAddition,
+    finalStateAddition,
+    transitionFuncAddition
+)
+
+print("initial tape: " + turingAddition.get_tape())
+
+while not turingAddition.final():
+    turingAddition.step()
+
+print("final tape: " + turingAddition.get_tape())
+
+# SUBTRACTION
 inputSubtraction = '11-11111'
 initialStateSubtraction = 'q0'
-finalStateSubtraction = {'q9'}
+finalStateSubtraction = {'q5'}
 transitionFuncSubtraction = {
     ('q0', '1'): ('q1', '_', 'R'),
     ('q0', '-'): ('q4', '_', 'R'),
@@ -32,7 +63,7 @@ while not turingSubtraction.final():
 
 print("final tape: " + turingSubtraction.get_tape())
 
-
+# DIVISION
 inputDivision = '110111111110'
 initialStateDivision = 'q0'
 finalStateDivision = {'q9'}
