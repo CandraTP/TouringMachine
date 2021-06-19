@@ -1,11 +1,10 @@
 from turing import TuringMachine
 
-#  Example configuration ----------
-tape = '110111111110'
-initial_state = 'q0'
-final_states = {'q9'}
+inputSample = '110111111110'
 
-transition_function = {
+initialStateDivision = 'q0'
+finalStateDivision = {'q9'}
+transitionFuncDivision = {
     ('q0', '1'): ('q1', '_', 'R'),
     ('q1', '1'): ('q1', '1', 'R'),
     ('q1', '0'): ('q2', '0', 'R'),
@@ -33,13 +32,12 @@ transition_function = {
     ('q8', '_'): ('q8', '_', 'R'),
     ('q8', '1'): ('q9', '1', 'R'),
 }
-# ---------------------------------
 
 turing_machine = TuringMachine(
-    tape,
-    initial_state,
-    final_states,
-    transition_function
+    inputSample,
+    initialStateDivision,
+    finalStateDivision,
+    transitionFuncDivision
 )
 
 print("initial tape: " + turing_machine.get_tape())
