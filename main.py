@@ -1,4 +1,6 @@
+from time import sleep
 from turing import TuringMachine
+import keyboard
 
 # ADDITION
 inputAddition = '1+11'
@@ -29,7 +31,7 @@ print("\ninitial tape addition     : "
 while not turingAddition.isFinal():
     turingAddition.nextMove()
 
-print("isFinal tape addition       : "
+print("final tape addition       : "
       + turingAddition.getTape())
 
 # SUBTRACTION
@@ -64,7 +66,7 @@ print("\ninitial tape subtraction  : "
 while not turingSubtraction.isFinal():
     turingSubtraction.nextMove()
 
-print("isFinal tape subtraction    : "
+print("final tape subtraction    : "
       + turingSubtraction.getTape())
 
 # MULTIPLICATION
@@ -112,7 +114,7 @@ print("\ninitial tape mutiplication: "
 while not turingMultiplication.isFinal():
     turingMultiplication.nextMove()
 
-print("isFinal tape mutiplication  : "
+print("final tape mutiplication  : "
       + turingMultiplication.getTape())
 
 # DIVISION
@@ -161,7 +163,7 @@ print("\ninitial tape division     : "
 while not turingDivision.isFinal():
     turingDivision.nextMove()
 
-print("isFinal tape division       : "
+print("final tape division       : "
       + turingDivision.getTape())
 
 # FACTORIAL
@@ -250,10 +252,22 @@ turingFactorial = TuringMachine(
 print("\ninitial tape factorial     : "
       + turingFactorial.getTape())
 
-while not turingFactorial.isFinal():
-    turingFactorial.nextMove()
+speed = 0.5
 
-print("isFinal tape factorial      : "
+if keyboard.KEY_UP:
+    speed += 0.05
+
+if keyboard.KEY_DOWN:
+    speed -= 0.05
+
+i = 0
+while not turingFactorial.isFinal():
+    i += 1
+    print('Step', i, ': ', end="")
+    turingFactorial.nextMove()
+    sleep(speed)
+
+print("final tape factorial      : "
       + turingFactorial.getTape())
 
 # BINARY LOG
@@ -308,5 +322,5 @@ print("\ninitial tape log 2        : "
 while not turingLog2.isFinal():
     turingLog2.nextMove()
 
-print("isFinal tape log 2          : "
+print("final tape log 2          : "
       + turingLog2.getTape())
