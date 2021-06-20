@@ -11,8 +11,23 @@ elif keyboard.KEY_DOWN:
 else:
     pass
 
+def convert(input):
+  num =''
+  for x in range(input):
+    num += '1'
+
+  return num
+
 # ADDITION
-inputAddition = '1+11'
+
+a = int(input('Input A:'))
+b = int(input('Input B:'))
+
+x = convert(a)
+y = convert(b)
+
+inputAddition = x+'+'+y
+
 initialStateAddition = 'q0'
 finalStateAddition = {'q3'}
 transitionFuncAddition = {
@@ -345,3 +360,5 @@ while not turingLog2.isFinal():
 
 print("final tape log 2          : "
       + turingLog2.getTape())
+
+
