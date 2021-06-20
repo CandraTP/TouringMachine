@@ -2,14 +2,7 @@ from time import sleep
 from turing import TuringMachine
 import keyboard
 
-speed = 0.5
-
-if keyboard.KEY_UP:
-    speed += 0.5
-elif keyboard.KEY_DOWN:
-    speed -= 0.5
-else:
-    pass
+speed = 0.1
 
 def convert(input):
   num =''
@@ -63,7 +56,14 @@ print("final tape addition       : "
       + turingAddition.getTape())
 
 # SUBTRACTION
-inputSubtraction = '11-111'
+
+a1 = int(input('Input A:'))
+b1 = int(input('Input B:'))
+
+x = convert(a1)
+y = convert(b1)
+
+inputSubtraction = y+'-'+x
 initialStateSubtraction = 'q0'
 finalStateSubtraction = {'q5'}
 transitionFuncSubtraction = {
@@ -102,7 +102,14 @@ print("final tape subtraction    : "
       + turingSubtraction.getTape())
 
 # MULTIPLICATION
-inputMultiplication = '11*11'
+
+a2 = int(input('Input A:'))
+b2 = int(input('Input B:'))
+
+x = convert(a2)
+y = convert(b2)
+
+inputMultiplication = x+'*'+y
 initialStateMultiplication = 'q0'
 finalStateMultiplication = {'q9'}
 transitionFuncMultiplication = {
@@ -154,7 +161,13 @@ print("final tape mutiplication  : "
       + turingMultiplication.getTape())
 
 # DIVISION
-inputDivision = '11011110'
+a3 = int(input('Input A:'))
+b3 = int(input('Input B:'))
+
+x = convert(a3)
+y = convert(b3)
+
+inputDivision = y+'0'+x+'0'
 initialStateDivision = 'q0'
 finalStateDivision = {'q9'}
 transitionFuncDivision = {
@@ -207,7 +220,11 @@ print("final tape division       : "
       + turingDivision.getTape())
 
 # FACTORIAL
-inputFactorial = '11'
+a4 = int(input('Input Bilangan:'))
+
+x = convert(a4)
+
+inputFactorial = x
 initialStateFactorial = 'q0'
 finalStateFactorial = {'q24'}
 transitionFuncFactorial = {
@@ -303,7 +320,11 @@ print("final tape factorial      : "
       + turingFactorial.getTape())
 
 # BINARY LOG
-inputLog2 = '1111'
+a5 = int(input('Input Bilangan:'))
+
+x = convert(a5)
+
+inputLog2 = x
 initialStateLog2 = 'q0'
 finalStateLog2 = {'q12'}
 transitionFuncLog2 = {
