@@ -110,36 +110,36 @@ while not turingMultiplication.final():
 print("final tape mutiplication  : " + turingMultiplication.get_tape())
 
 # DIVISION
-inputDivision = '110111111110'
+inputDivision = '1101111110'
 initialStateDivision = 'q0'
 finalStateDivision = {'q9'}
 transitionFuncDivision = {
+    ('q0', '0'): ('q4', '0', 'R'),
     ('q0', '1'): ('q1', '_', 'R'),
-    ('q1', '1'): ('q1', '1', 'R'),
     ('q1', '0'): ('q2', '0', 'R'),
-    ('q2', 'X'): ('q2', 'X', 'R'),
+    ('q1', '1'): ('q1', '1', 'R'),
+    ('q2', '0'): ('q7', '_', 'L'),
     ('q2', '1'): ('q3', 'X', 'L'),
+    ('q2', 'X'): ('q2', 'X', 'R'),
     ('q3', '0'): ('q3', '0', 'L'),
     ('q3', '1'): ('q3', '1', 'L'),
     ('q3', 'X'): ('q3', 'X', 'L'),
     ('q3', '_'): ('q0', '1', 'R'),
-    ('q0', '0'): ('q4', '0', 'R'),
+    ('q4', '0'): ('q5', '0', 'R'),
     ('q4', '1'): ('q4', '1', 'R'),
     ('q4', 'X'): ('q4', 'X', 'R'),
-    ('q4', '0'): ('q5', '0', 'R'),
     ('q5', '1'): ('q5', '1', 'R'),
     ('q5', '_'): ('q6', '1', 'L'),
-    ('q6', '1'): ('q6', '1', 'L'),
     ('q6', '0'): ('q6', '0', 'L'),
+    ('q6', '1'): ('q6', '1', 'L'),
     ('q6', 'X'): ('q6', 'X', 'L'),
     ('q6', '_'): ('q0', '_', 'R'),
-    ('q2', '0'): ('q7', '_', 'L'),
-    ('q7', '1'): ('q7', '_', 'L'),
     ('q7', '0'): ('q7', '_', 'L'),
+    ('q7', '1'): ('q7', '_', 'L'),
     ('q7', 'X'): ('q7', '_', 'L'),
     ('q7', '_'): ('q8', '_', 'R'),
-    ('q8', '_'): ('q8', '_', 'R'),
     ('q8', '1'): ('q9', '1', 'R'),
+    ('q8', '_'): ('q8', '_', 'R'),
 }
 
 turingDivision = TuringMachine(
@@ -245,3 +245,56 @@ while not turingFactorial.final():
     turingFactorial.step()
 
 print("final tape factorial      : " + turingFactorial.get_tape())
+
+# BINARY LOG
+inputLog2 = '11111111'
+initialStateLog2 = 'q0'
+finalStateLog2 = {'q12'}
+transitionFuncLog2 = {
+    ('q0', '1'): ('q1', '1', 'R'),
+    ('q0', '_'): ('q12', '_', 'R'),
+    ('q0', '1'): ('q2', '1', 'R'),
+    ('q0', '_'): ('q11', '_', 'L'),
+    ('q0', '1'): ('q3', 'X', 'R'),
+    ('q0', '_'): ('q11', '_', 'L'),
+    ('q3', '1'): ('q4', 'X', 'L'),
+    ('q3', 'X'): ('q3', 'X', 'R'),
+    ('q3', '_'): ('q7', '_', 'L'),
+    ('q4', '0'): ('q4', '0', 'L'),
+    ('q4', '1'): ('q4', '1', 'L'),
+    ('q4', 'X'): ('q4', 'X', 'L'),
+    ('q4', '_'): ('q5', '_', 'R'),
+    ('q5', '0'): ('q6', '1', 'R'),
+    ('q5', '1'): ('q5', '0', 'R'),
+    ('q5', 'X'): ('q6', '1', 'R'),
+    ('q6', '0'): ('q6', '0', 'R'),
+    ('q6', '1'): ('q6', '1', 'R'),
+    ('q6', 'X'): ('q3', 'X', 'R'),
+    ('q7', '0'): ('q7', '0', 'L'),
+    ('q7', '1'): ('q7', '1', 'L'),
+    ('q7', 'X'): ('q7', '_', 'L'),
+    ('q7', '_'): ('q8', '_', 'R'),
+    ('q8', '0'): ('q8', '1', 'R'),
+    ('q8', '1'): ('q9', '1', 'R'),
+    ('q9', '0'): ('q9', '1', 'R'),
+    ('q9', '1'): ('q10', '1', 'R'),
+    ('q9', '_'): ('q11', '_', 'L'),
+    ('q10', '0'): ('q10', '1', 'R'),
+    ('q10', '1'): ('q10', '1', 'R'),
+    ('q10', '_'): ('q12', '_', 'L'),
+    ('q11', '1'): ('q12', '_', 'R'),
+}
+
+turingLog2 = TuringMachine(
+    inputLog2,
+    initialStateLog2,
+    finalStateLog2,
+    transitionFuncLog2
+)
+
+print("\ninitial tape log 2        : " + turingLog2.get_tape())
+
+while not turingLog2.final():
+    turingLog2.step()
+
+print("final tape log 2          : " + turingLog2.get_tape())
