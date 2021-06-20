@@ -1,7 +1,7 @@
 from turing import TuringMachine
 
 # ADDITION
-inputAddition = '111+111'
+inputAddition = '1+11'
 initialStateAddition = 'q0'
 finalStateAddition = {'q3'}
 transitionFuncAddition = {
@@ -31,7 +31,7 @@ while not turingAddition.final():
 print("final tape addition       : " + turingAddition.get_tape())
 
 # SUBTRACTION
-inputSubtraction = '11-11111'
+inputSubtraction = '11-111'
 initialStateSubtraction = 'q0'
 finalStateSubtraction = {'q5'}
 transitionFuncSubtraction = {
@@ -64,7 +64,7 @@ while not turingSubtraction.final():
 print("final tape subtraction    : " + turingSubtraction.get_tape())
 
 # MULTIPLICATION
-inputMultiplication = '111*11'
+inputMultiplication = '11*111'
 initialStateMultiplication = 'q0'
 finalStateMultiplication = {'q9'}
 transitionFuncMultiplication = {
@@ -157,7 +157,7 @@ while not turingDivision.final():
 print("final tape division       : " + turingDivision.get_tape())
 
 # FACTORIAL
-inputFactorial = '111'
+inputFactorial = '11'
 initialStateFactorial = 'q0'
 finalStateFactorial = {'q24'}
 transitionFuncFactorial = {
@@ -247,7 +247,7 @@ while not turingFactorial.final():
 print("final tape factorial      : " + turingFactorial.get_tape())
 
 # BINARY LOG
-inputLog2 = '11111111'
+inputLog2 = '1111'
 initialStateLog2 = 'q0'
 finalStateLog2 = {'q12'}
 transitionFuncLog2 = {
