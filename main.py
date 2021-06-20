@@ -23,12 +23,14 @@ turingAddition = TuringMachine(
     transitionFuncAddition
 )
 
-print("\ninitial tape addition     : " + turingAddition.get_tape())
+print("\ninitial tape addition     : "
+      + turingAddition.getTape())
 
-while not turingAddition.final():
-    turingAddition.step()
+while not turingAddition.isFinal():
+    turingAddition.nextMove()
 
-print("final tape addition       : " + turingAddition.get_tape())
+print("isFinal tape addition       : "
+      + turingAddition.getTape())
 
 # SUBTRACTION
 inputSubtraction = '11-111'
@@ -56,12 +58,14 @@ turingSubtraction = TuringMachine(
     transitionFuncSubtraction
 )
 
-print("\ninitial tape subtraction  : " + turingSubtraction.get_tape())
+print("\ninitial tape subtraction  : "
+      + turingSubtraction.getTape())
 
-while not turingSubtraction.final():
-    turingSubtraction.step()
+while not turingSubtraction.isFinal():
+    turingSubtraction.nextMove()
 
-print("final tape subtraction    : " + turingSubtraction.get_tape())
+print("isFinal tape subtraction    : "
+      + turingSubtraction.getTape())
 
 # MULTIPLICATION
 inputMultiplication = '11*111'
@@ -102,12 +106,14 @@ turingMultiplication = TuringMachine(
     transitionFuncMultiplication
 )
 
-print("\ninitial tape mutiplication: " + turingMultiplication.get_tape())
+print("\ninitial tape mutiplication: "
+      + turingMultiplication.getTape())
 
-while not turingMultiplication.final():
-    turingMultiplication.step()
+while not turingMultiplication.isFinal():
+    turingMultiplication.nextMove()
 
-print("final tape mutiplication  : " + turingMultiplication.get_tape())
+print("isFinal tape mutiplication  : "
+      + turingMultiplication.getTape())
 
 # DIVISION
 inputDivision = '1101111110'
@@ -149,12 +155,14 @@ turingDivision = TuringMachine(
     transitionFuncDivision
 )
 
-print("\ninitial tape division     : " + turingDivision.get_tape())
+print("\ninitial tape division     : "
+      + turingDivision.getTape())
 
-while not turingDivision.final():
-    turingDivision.step()
+while not turingDivision.isFinal():
+    turingDivision.nextMove()
 
-print("final tape division       : " + turingDivision.get_tape())
+print("isFinal tape division       : "
+      + turingDivision.getTape())
 
 # FACTORIAL
 inputFactorial = '11'
@@ -239,12 +247,14 @@ turingFactorial = TuringMachine(
     transitionFuncFactorial
 )
 
-print("\ninitial tape factorial     : " + turingFactorial.get_tape())
+print("\ninitial tape factorial     : "
+      + turingFactorial.getTape())
 
-while not turingFactorial.final():
-    turingFactorial.step()
+while not turingFactorial.isFinal():
+    turingFactorial.nextMove()
 
-print("final tape factorial      : " + turingFactorial.get_tape())
+print("isFinal tape factorial      : "
+      + turingFactorial.getTape())
 
 # BINARY LOG
 inputLog2 = '1111'
@@ -292,9 +302,11 @@ turingLog2 = TuringMachine(
     transitionFuncLog2
 )
 
-print("\ninitial tape log 2        : " + turingLog2.get_tape())
+print("\ninitial tape log 2        : "
+      + turingLog2.getTape())
 
-while not turingLog2.final():
-    turingLog2.step()
+while not turingLog2.isFinal():
+    turingLog2.nextMove()
 
-print("final tape log 2          : " + turingLog2.get_tape())
+print("isFinal tape log 2          : "
+      + turingLog2.getTape())
