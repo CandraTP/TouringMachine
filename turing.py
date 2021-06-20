@@ -63,7 +63,7 @@ class TuringMachine(object):
                 self._headPosition -= 1
             self._currentState = y[0]
 
-            print(self._tape)
+            return(self._tape)
 
     def final(self):
         if self._currentState in self._finalState:
